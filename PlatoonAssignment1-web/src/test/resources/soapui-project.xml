@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="bed07b62-c305-4094-b9ac-2c5cda4037f7" activeEnvironment="Default" name="CicRegistrationEngine" resourceRoot="" soapui-version="5.1.3" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="e723cf89-b2df-4913-8407-9a632a5aa96e" wsaVersion="NONE" name="CicRegistrationEngineServiceSoapBinding" type="wsdl" bindingName="{http://service.binarypaper.net/}CicRegistrationEngineServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/PlatoonAssignment1-web/CicRegistrationEngine?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/PlatoonAssignment1-web/CicRegistrationEngine?wsdl"><con:part><con:url>http://localhost:8080/PlatoonAssignment1-web/CicRegistrationEngine?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="CicRegistrationEngineService" targetNamespace="http://service.binarypaper.net/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service.binarypaper.net/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://service.binarypaper.net/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="cic" type="tns:cic"/>
+      <xs:element name="registerCic" type="tns:registerCic"/>
+      <xs:element name="registerCicResponse" type="tns:registerCicResponse"/>
+      <xs:element name="retrieveCicInfo" type="tns:retrieveCicInfo"/>
+      <xs:element name="retrieveCicInfoResponse" type="tns:retrieveCicInfoResponse"/>
+      <xs:complexType name="registerCic">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cic" type="tns:cic"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cic">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="body" type="xs:string"/>
+          <xs:element minOccurs="0" name="cicType" type="xs:string"/>
+          <xs:element minOccurs="0" name="destination" type="tns:destination"/>
+          <xs:element minOccurs="0" name="id" type="xs:long"/>
+          <xs:element minOccurs="0" name="sourceSystem" type="xs:string"/>
+          <xs:element minOccurs="0" name="subject" type="xs:string"/>
+          <xs:element minOccurs="0" name="timestamp" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="destination">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="address" type="xs:string"/>
+          <xs:element minOccurs="0" name="id" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="registerCicResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:cic"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="retrieveCicInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cicId" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="retrieveCicInfoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:cic"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="CicException" type="tns:CicException"/>
+      <xs:complexType name="CicException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="CicException">
+    <wsdl:part element="tns:CicException" name="CicException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="retrieveCicInfoResponse">
+    <wsdl:part element="tns:retrieveCicInfoResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registerCic">
+    <wsdl:part element="tns:registerCic" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registerCicResponse">
+    <wsdl:part element="tns:registerCicResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="retrieveCicInfo">
+    <wsdl:part element="tns:retrieveCicInfo" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CicRegistrationEngine">
+    <wsdl:operation name="registerCic">
+      <wsdl:input message="tns:registerCic" name="registerCic"></wsdl:input>
+      <wsdl:output message="tns:registerCicResponse" name="registerCicResponse"></wsdl:output>
+      <wsdl:fault message="tns:CicException" name="CicException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveCicInfo">
+      <wsdl:input message="tns:retrieveCicInfo" name="retrieveCicInfo"></wsdl:input>
+      <wsdl:output message="tns:retrieveCicInfoResponse" name="retrieveCicInfoResponse"></wsdl:output>
+      <wsdl:fault message="tns:CicException" name="CicException"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CicRegistrationEngineServiceSoapBinding" type="tns:CicRegistrationEngine">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="registerCic">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="registerCic">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="registerCicResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CicException">
+        <soap:fault name="CicException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveCicInfo">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="retrieveCicInfo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="retrieveCicInfoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CicException">
+        <soap:fault name="CicException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CicRegistrationEngineService">
+    <wsdl:port binding="tns:CicRegistrationEngineServiceSoapBinding" name="CicRegistrationEnginePort">
+      <soap:address location="http://localhost:8080/PlatoonAssignment1-web/CicRegistrationEngine"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/PlatoonAssignment1-web/CicRegistrationEngine</con:endpoint><con:endpoint>http://localhost:8080/PlatoonAssignment1-web/CicRegistrationEngine/CicRegistrationEngine</con:endpoint></con:endpoints><con:operation id="90bc58af-685f-4bbb-8a12-626e9441cf7c" isOneWay="false" action="" name="registerCic" bindingOperationName="registerCic" type="Request-Response" outputName="registerCicResponse" inputName="registerCic" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="fe828dd1-1dbb-4556-b727-a8813c99df6e" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/PlatoonAssignment1-web/CicRegistrationEngine</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.binarypaper.net/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:registerCic>\r
+         <!--Optional:-->\r
+         <cic>\r
+            <!--Optional:-->\r
+            <body>Body</body>\r
+            <!--Optional:-->\r
+            <cicType>Type</cicType>\r
+            <!--Optional:-->\r
+            <destination>\r
+               <!--Optional:-->\r
+               <address>Address</address>\r
+            </destination>\r
+            <!--Optional:-->\r
+            <sourceSystem>Source System</sourceSystem>\r
+            <!--Optional:-->\r
+            <subject>Subject</subject>\r
+            <!--Optional:-->
+            <timestamp>2016-02-03T20:38:40.365+02:00</timestamp>\r
+         </cic>\r
+      </ser:registerCic>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://service.binarypaper.net/CicRegistrationEngine/registerCic"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="e95bd182-35ad-4d29-bd04-d094d761a5d7" isOneWay="false" action="" name="retrieveCicInfo" bindingOperationName="retrieveCicInfo" type="Request-Response" outputName="retrieveCicInfoResponse" inputName="retrieveCicInfo" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f16e195d-d16d-43ee-b1a6-e608565940ac" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/PlatoonAssignment1-web/CicRegistrationEngine</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.binarypaper.net/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:retrieveCicInfo>\r
+         <!--Optional:-->\r
+         <cicId>1</cicId>\r
+      </ser:retrieveCicInfo>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://service.binarypaper.net/CicRegistrationEngine/retrieveCicInfo"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>
